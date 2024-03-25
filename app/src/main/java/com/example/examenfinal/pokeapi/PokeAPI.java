@@ -66,5 +66,40 @@ public class PokeAPI {
         });
     }
 
+    public static void getItemList(MutableLiveData<List<ItemListItem>> itemList) {
+        service.getItemList().enqueue(new Callback<ItemList>() {
+            @Override
+            public void onResponse(Call<ItemList> call, Response<ItemList> response) {
+                if (response.isSuccessful()) {
+                    ItemList list = response.body();
+                    if (list != null) {
+                        itemList.setValue(list.getResults());
+                    }
+                } else {
+                    Log.e("API_ERROR", "Error getting item list: " + response.errorBody());
+                }
+            }
 
+            @Override
+            public void onFailure(Call<ItemList> call, Throwable t) {
+                Log.e("API_ERROR", "Error getting item list", t);
+            }
+        });
+    }
+
+    public static void getItem(String name, MutableLiveData<Item> item) {
+        service.getItem(name).enqueue(new Callback<Item>() {
+            @Override
+            public void onResponse(Call<Item> call, Response<Item> response) {
+                if (response.isSuccessful()) {
+                    item.setValue(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Item> call, Throwable t) {
+                Log.e("API_ERROR", "Error getting item", t);
+            }
+        });
+    }
 }

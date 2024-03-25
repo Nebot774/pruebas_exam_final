@@ -9,9 +9,8 @@ public class Move {
     private String accuracy;
     private String name;
 
-    // TODO falta serializar el listado de Pokémon, en el JSON de la API se llama learned_by_pokemon no pokemons.
     @SerializedName("learned_by_pokemon")
-    private List<PokemonListItem> pokemons;
+    private List<PokemonListItem> learned_by_pokemon;
 
     public String getAccuracy() {
         return accuracy;
@@ -21,20 +20,19 @@ public class Move {
         return name;
     }
 
-    public List<PokemonListItem> getPokemons() {
-        return pokemons;
+    public List<PokemonListItem> getLearned_by_pokemon() {
+        return learned_by_pokemon;
     }
 
     /**
      *  Junta todo el listado de nombres de Pokémon en una cadena y la devuelve.
-     *  Actualmente NO funciona porque hay que serializar pokemons.
      *
      * @return      Una cadena con el nombre de todos los Pokémon que aprenden este movimiento.
      */
     public String getPokemonsString() {
         String s = "";
-        for (int i = 0; pokemons != null && i<pokemons.size(); i++) {
-            s += pokemons.get(i).getName() + " ";
+        for (int i = 0; learned_by_pokemon != null && i<learned_by_pokemon.size(); i++) {
+            s += learned_by_pokemon.get(i).getName() + " ";
         }
         return  s;
     }

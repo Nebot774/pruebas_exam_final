@@ -5,7 +5,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import com.example.examenfinal.models.*;
-
+import java.util.List;
 public interface PokeAPIService {
     String BASE_URL = "https://pokeapi.co/api/v2/";
 
@@ -14,4 +14,11 @@ public interface PokeAPIService {
 
     @GET("move")
     Call<MoveList> getMoveList(@Query("limit") int limit, @Query("offset") int offset);
+
+    @GET("item")
+    Call<ItemList> getItemList();
+
+    @GET("item/{name}")
+    Call<Item> getItem(@Path("name") String name);
+
 }

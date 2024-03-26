@@ -87,12 +87,18 @@ public class PokeAPI {
         });
     }
 
+
+
+
+
     public static void getItem(String name, MutableLiveData<Item> item) {
         service.getItem(name).enqueue(new Callback<Item>() {
             @Override
             public void onResponse(Call<Item> call, Response<Item> response) {
                 if (response.isSuccessful()) {
-                    item.setValue(response.body());
+                    Item responseItem = response.body();
+                    Log.d("API_RESPONSE", "Item: " + responseItem);
+                    item.setValue(responseItem);
                 }
             }
 

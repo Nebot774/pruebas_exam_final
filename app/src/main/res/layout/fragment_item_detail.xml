@@ -27,6 +27,46 @@
             android:layout_height="wrap_content"
             android:text="@{item.name}"
             android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categoria"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/item_category_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.category.name}"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Coste"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/item_cost_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(item.cost)}"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Efectos"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/item_effects_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.getEffectsAsString()}"
+            android:textSize="24sp" />
+
     </LinearLayout>
 
 </layout>

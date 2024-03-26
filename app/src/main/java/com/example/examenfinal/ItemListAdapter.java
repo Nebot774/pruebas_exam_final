@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.examenfinal.R;
@@ -15,6 +16,13 @@ import java.util.List;
 
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemViewHolder> {
     private List<ItemListItem> items;
+    private ItemsViewModel itemsViewModel;
+    private NavController navController;
+
+    public ItemListAdapter(ItemsViewModel itemsViewModel, NavController navController) {
+        this.itemsViewModel = itemsViewModel;
+        this.navController = navController;
+    }
 
     @NonNull
     @Override
@@ -27,6 +35,13 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemVi
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         ItemListItem item = items.get(position);
         holder.itemNameTextView.setText(item.getName());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                itemsViewModel.selectItem(item);
+                navController.navigate(R.id.action_itemListRecyclerFragment_to_itemDetailFragment);
+            }
+        });
     }
 
     @Override

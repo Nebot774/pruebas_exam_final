@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_movements"
+        android:title="Movimientos" />
+    <item
+        android:id="@+id/menu_items"
+        android:title="Ítems" />
+    <item
+        android:id="@+id/menu_random_item"
+        android:title="Ítem aleatorio" />
+</menu>

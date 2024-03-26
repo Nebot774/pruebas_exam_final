@@ -20,6 +20,7 @@
         android:label="fragment_item_detail"
         tools:layout="@layout/fragment_item_detail" />
 
+
     <fragment
         android:id="@+id/moveListRecyclerFragment"
         android:name="com.example.examenfinal.MoveListRecyclerFragment"
@@ -34,5 +35,10 @@
         android:name="com.example.examenfinal.MoveDetailFragment"
         android:label="fragment_move_detail"
         tools:layout="@layout/fragment_move_detail" />
+
+
+
+
+
 
 </navigation>
